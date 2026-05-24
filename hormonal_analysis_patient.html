@@ -1,21 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гормональний аналіз пацієнта</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
+    <style>
+        /* Создаем цветовую палитру, которой не хватало вашему сайту */
+        :root {
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f1f5f9;
+            --color-background-success: #bbf7d0;
+            --color-background-warning: #fef08a;
+            --color-background-danger: #fee2e2;
+            --color-background-info: #e0f2fe;
+            
+            --color-text-primary: #0f172a;
+            --color-text-secondary: #475569;
+            --color-text-tertiary: #94a3b8;
+            --color-text-success: #166534;
+            --color-text-warning: #854d0e;
+            --color-text-danger: #991b1b;
+            --color-text-info: #0369a1;
+            
+            --color-border-secondary: #cbd5e1;
+            --color-border-tertiary: #e2e8f0;
+            --border-radius-md: 6px;
+            --border-radius-lg: 12px;
+        }
 
-<h2 class="sr-only">Гормональний аналіз пацієнта — показники, взаємодія гормонів та рекомендації</h2>
-<style>
-.sl{font-size:11px;font-weight:500;color:var(--color-text-secondary);letter-spacing:.07em;text-transform:uppercase;margin:0 0 14px}
-.sd{border-top:.5px solid var(--color-border-tertiary);margin:24px 0 18px}
-.bd{display:inline-block;font-size:11px;padding:2px 8px;border-radius:var(--border-radius-md)}
-.gr{margin-bottom:18px}
-.gn{font-size:14px;font-weight:500;color:var(--color-text-primary)}
-.gv{font-size:13px;color:var(--color-text-secondary)}
-.gt{position:relative;height:16px;margin:5px 0 2px}
-.gb{position:absolute;top:4px;left:0;right:0;height:8px;background:var(--color-background-secondary);border-radius:4px}
-.gm{position:absolute;width:3px;height:16px;top:0;transform:translateX(-50%);border-radius:2px}
-.gl{font-size:10px;color:var(--color-text-tertiary)}
-.rc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 12px}
-.rt{font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 8px}
-.rp{font-size:12px;color:var(--color-text-secondary);margin:0 0 5px;padding-left:12px;position:relative;line-height:1.4}
-.rp::before{content:'·';position:absolute;left:2px;color:var(--color-text-tertiary)}
-</style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8fafc;
+            color: var(--color-text-primary);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Ваши оригинальные стили */
+        .sl{font-size:11px;font-weight:500;color:var(--color-text-secondary);letter-spacing:.07em;text-transform:uppercase;margin:0 0 14px}
+        .sd{border-top:.5px solid var(--color-border-tertiary);margin:24px 0 18px}
+        .bd{display:inline-block;font-size:11px;padding:2px 8px;border-radius:var(--border-radius-md)}
+        .gr{margin-bottom:18px}
+        .gn{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+        .gv{font-size:13px;color:var(--color-text-secondary)}
+        .gt{position:relative;height:16px;margin:5px 0 2px}
+        .gb{position:absolute;top:4px;left:0;right:0;height:8px;background:var(--color-background-secondary);border-radius:4px}
+        .gm{position:absolute;width:3px;height:16px;top:0;transform:translateX(-50%);border-radius:2px}
+        .gl{font-size:10px;color:var(--color-text-tertiary)}
+        .rc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 12px}
+        .rt{font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 8px}
+        .rp{font-size:12px;color:var(--color-text-secondary);margin:0 0 5px;padding-left:12px;position:relative;line-height:1.4}
+        .rp::before{content:'·';position:absolute;left:2px;color:var(--color-text-tertiary)}
+
+        /* Стили для SVG схемы */
+        .node rect { fill: var(--color-background-secondary); stroke: var(--color-border-secondary); cursor: pointer; transition: all 0.2s; }
+        .node:hover rect { filter: brightness(0.95); }
+        .c-red rect { fill: var(--color-background-danger); stroke: var(--color-text-danger); }
+        .c-coral rect { fill: #ffedd5; stroke: #ea580c; }
+        .c-blue rect { fill: var(--color-background-info); stroke: var(--color-text-info); }
+        .th { font-size: 14px; font-weight: bold; fill: var(--color-text-primary); }
+        .ts { font-size: 12px; fill: var(--color-text-secondary); }
+        .c-red .th { fill: var(--color-text-danger); }
+        .c-blue .th { fill: var(--color-text-info); }
+        .c-coral .th { fill: #c2410c; }
+    </style>
+</head>
+<body>
+
+<h2 class="sl" style="font-size: 18px; color: var(--color-text-primary);">Гормональний аналіз пацієнта — показники, взаємодія гормонів та рекомендації</h2>
 
 <div style="display:flex;gap:8px;flex-wrap:wrap;padding:1rem 0 18px">
   <span class="bd" style="background:var(--color-background-danger);color:var(--color-text-danger)">↑ Адреналін підвищений</span>
@@ -33,22 +88,22 @@
 <svg width="100%" viewBox="0 0 680 435" role="img">
 <title>Схема взаємодії гормонів та симптомів пацієнта</title>
 <desc>Хронічний стрес активує стрес-вісь, підвищує кортизол і адреналін, вони взаємопосилюють один одного і пригнічують серотонін, спричиняючи симптоми</desc>
-<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 
-<g class="node c-gray" onclick="sendPrompt('Що таке вісь стресу ГГН і як вона впливає на гормони?')">
+<g class="node c-gray" onclick="alert('Вісь ГГН (гіпоталамус-гіпофіз-наднирники) — це головна система реакції на стрес. Хронічний стрес тримає її постійно активною.')">
 <rect x="220" y="20" width="240" height="60" rx="8" stroke-width=".5"/>
 <text class="th" x="340" y="41" text-anchor="middle" dominant-baseline="central">Активація стрес-осі ГГН</text>
 <text class="ts" x="340" y="61" text-anchor="middle" dominant-baseline="central">Хронічний стрес, перевтома</text>
 </g>
 
-<g class="node c-red" onclick="sendPrompt('Що означає підвищений кортизол? Причини та наслідки для здоровʼя')">
+<g class="node c-red" onclick="alert('Підвищений кортизол руйнує фази сну, викликає постійне відчуття тривоги зранку та веде к накопиченню втоми.')">
 <rect x="30" y="130" width="250" height="110" rx="8" stroke-width=".5"/>
 <text class="th" x="155" y="167" text-anchor="middle" dominant-baseline="central">Кортизол ↑</text>
 <text class="ts" x="155" y="185" text-anchor="middle" dominant-baseline="central">28 мкг/дл · норма: 5–25</text>
 <text class="ts" x="155" y="203" text-anchor="middle" dominant-baseline="central">Тривога · безсоння</text>
 </g>
 
-<g class="node c-coral" onclick="sendPrompt('Що означає підвищений адреналін? Причини та наслідки для здоровʼя')">
+<g class="node c-coral" onclick="alert('Високий адреналін тримає тіло у стані «бийся або біжи», викликає спазм судин, прискорений пульс та виснажує нервову систему.')">
 <rect x="400" y="130" width="250" height="110" rx="8" stroke-width=".5"/>
 <text class="th" x="525" y="167" text-anchor="middle" dominant-baseline="central">Адреналін ↑</text>
 <text class="ts" x="525" y="185" text-anchor="middle" dominant-baseline="central">95 пг/мл · норма: 20–80</text>
@@ -68,10 +123,10 @@
 <path d="M525,240 L525,268 L400,268 L400,296" fill="none" stroke="var(--color-border-secondary)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#ar)" opacity=".6"/>
 <text class="ts" x="462" y="261" text-anchor="middle">пригнічує ↓</text>
 
-<g class="node c-blue" onclick="sendPrompt('Чому знижений серотонін викликає перепади настрою і порушення сну?')">
+<g class="node c-blue" onclick="alert('Брак серотоніну (гормону щастя) виникає через те, що стрес блокує його синтез. Це веде до депресивного настрою та погіршує якість сну, бо з серотоніну робиться мелатонін.')">
 <rect x="200" y="300" width="280" height="100" rx="8" stroke-width=".5"/>
 <text class="th" x="340" y="332" text-anchor="middle" dominant-baseline="central">Серотонін ↓</text>
-<text class="ts" x="340" y="352" text-anchor="middle" dominant-baseline="central">90 нг/мл · норма: 100–250</text>
+<text class="ts" x="340" y="352" text-anchor="middle" dominant-baseline="central">90 г/мл · норма: 100–250</text>
 <text class="ts" x="340" y="372" text-anchor="middle" dominant-baseline="central">Пригнічений настрій · безсоння</text>
 </g>
 
@@ -80,9 +135,9 @@
 
 <div class="sd"></div>
 <p class="sl">Рекомендації</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;padding-bottom:1rem">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding-bottom:1rem">
 <div class="rc">
-  <i class="ti ti-leaf" aria-hidden="true" style="font-size:20px;margin-bottom:8px;display:block;color:var(--color-text-success)"></i>
+  <i class="ti ti-leaf" aria-hidden="true" style="font-size:24px;margin-bottom:8px;display:block;color:var(--color-text-success)"></i>
   <p class="rt">Харчування</p>
   <p class="rp">Триптофан: банани, горіхи, індичка</p>
   <p class="rp">Магній і В6: зелені овочі, насіння</p>
@@ -90,7 +145,7 @@
   <p class="rp">Уникати кофеїну та цукру</p>
 </div>
 <div class="rc">
-  <i class="ti ti-moon" aria-hidden="true" style="font-size:20px;margin-bottom:8px;display:block;color:var(--color-text-info)"></i>
+  <i class="ti ti-moon" aria-hidden="true" style="font-size:24px;margin-bottom:8px;display:block;color:var(--color-text-info)"></i>
   <p class="rt">Режим дня</p>
   <p class="rp">Сон 7–9 год, стабільний час</p>
   <p class="rp">Ранкове сонячне світло</p>
@@ -98,7 +153,7 @@
   <p class="rp">Без екранів за 1 год до сну</p>
 </div>
 <div class="rc">
-  <i class="ti ti-run" aria-hidden="true" style="font-size:20px;margin-bottom:8px;display:block;color:var(--color-text-warning)"></i>
+  <i class="ti ti-run" aria-hidden="true" style="font-size:24px;margin-bottom:8px;display:block;color:var(--color-text-warning)"></i>
   <p class="rt">Активність</p>
   <p class="rp">30 хв помірного навантаження</p>
   <p class="rp">Йога, плавання, прогулянки</p>
@@ -106,7 +161,7 @@
   <p class="rp">Уникати перетренованості</p>
 </div>
 <div class="rc">
-  <i class="ti ti-shield" aria-hidden="true" style="font-size:20px;margin-bottom:8px;display:block;color:var(--color-text-danger)"></i>
+  <i class="ti ti-shield" aria-hidden="true" style="font-size:24px;margin-bottom:8px;display:block;color:var(--color-text-danger)"></i>
   <p class="rt">Профілактика</p>
   <p class="rp">Аналізи кожні 3–6 місяців</p>
   <p class="rp">Психотерапія, стрес-менеджмент</p>
@@ -154,3 +209,5 @@ document.getElementById('gauges').innerHTML=data.map(h=>{
 </div>`;
 }).join('');
 </script>
+</body>
+</html>
